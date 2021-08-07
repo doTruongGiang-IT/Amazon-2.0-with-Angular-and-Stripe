@@ -1,0 +1,112 @@
+.list {
+    padding: 40px 20px;
+    margin: 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-item {
+        width: 380px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        margin: 40px 20px;
+        padding: 20px;
+        box-shadow: 5px 5px 20px 0px lightgray;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(110%);
+        }
+
+        h2 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 10px;
+        }
+
+        img {
+            padding-top: 15px;
+            border-radius: 10px;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(110%);
+            }
+        }
+
+        p {
+            margin: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &-category {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: lightgray;
+            font-size: 14px;
+        }
+
+        button {
+            background: linear-gradient(to bottom, yellow, orange);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            padding: 10px 0;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: all 0.2s ease-in-out;
+
+            &:active {
+                transform: scaleX(80%);
+            }
+        }
+
+        span {
+
+            i {
+                color: yellow;
+            }
+        }
+    }
+};
+
+
+@media (min-width: 414px) and (max-width: 767px) {
+    .list {
+        &-banner {
+            display: none;
+        };
+
+        &-conatiner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        };
+
+        &-item {
+            width: 250px;
+
+            img {
+                width: 200px;
+                height: 200px;
+            };
+        };
+    };
+};

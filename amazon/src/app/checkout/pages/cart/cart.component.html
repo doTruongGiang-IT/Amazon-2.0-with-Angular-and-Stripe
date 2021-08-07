@@ -1,0 +1,62 @@
+<div class="cart" >
+    <h1>Your Cart</h1>
+    <main class="cart-container" *ngIf="productService.cartProducts$ | async as items">
+        <ng-container *ngIf="items.length !== 0;else none">
+            <div class="cart-items">
+                <div class="cart-item" *ngFor="let item of items">
+                    <div>
+                        <img
+                            nz-image
+                            width="200px"
+                            height="200px"
+                            nzSrc={{item.image}}
+                            alt=""
+                            nzDisablePreview="true"
+                        />
+                    </div>
+                    <div class="cart-item-info">
+                        <p id="amount">x{{item.qty}}</p>
+                        <h2>{{item.title}}</h2>
+                        <p>{{item.description}}</p>
+                        <p>Category: {{item.category}}</p>
+                        <p><strong>${{item.price}}</strong></p>
+                        <div class="cart-item-buttons">
+                            <button (click)="increaseQty(item.id)">+</button>
+                            <button (click)="decreaseQty(item.id)">-</button>
+                            <button (click)="removeItem(item.id)"><i nz-icon nzType="delete" nzTheme="outline"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-checkout" *ngIf="productService.cartProducts$ | async as items">
+                <h2>Checkout</h2>
+                <p id="delivery"><i nz-icon nzType="check" nzTheme="outline"></i> Your order is Free Delivery for next day</p>
+                <h2>Total: ${{subTotal}}</h2>
+                <p><strong>Number of items: {{items.length}}</strong></p>
+                <p>This price is exclusive of taxes GST will be added during checkout.</p>
+                <ng-container *ngIf="(auth.user$ | async) && (items.length !== 0);else guest">
+                    <button (click)="processToCheckout(subTotal)">Process to checkout</button>
+                </ng-container>
+                <ng-template #guest>
+                    <button id="btn-guest" disabled="true">Can't check out now</button>
+                </ng-template>
+            </div>
+        </ng-container>
+        <ng-template #none>
+            <img class="cart-none"
+                nz-image
+                width="250px"
+                height="250px"
+                nzSrc="../../../../assets/empty_cart.png"
+                alt=""
+                nzDisablePreview="true"
+            />
+            <div class="cart-checkout">
+                <h2>Your cart feels lonely</h2>
+                <p>Your shopping cart lives to serve. Give it purpose - fill it </p>
+                <p>with clothes, electronics, jeweleries, etc,... and make it happy.</p>
+                <button [routerLink]="['/list']" >Continue Shopping</button>
+            </div>
+        </ng-template>
+    </main>
+</div>

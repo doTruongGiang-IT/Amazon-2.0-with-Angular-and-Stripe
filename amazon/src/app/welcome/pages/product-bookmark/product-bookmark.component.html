@@ -1,0 +1,33 @@
+<div class="book">
+    <h1>Your Book Marks</h1>
+    <ng-container *ngIf="userLogin;else none">
+        <div class="book-container">   
+            <div class="book-item" *ngFor="let product of userLogin.books">
+                <img [routerLink]="['/list', product.id]" 
+                    nz-image
+                    width="300px"
+                    height="300px"
+                    nzSrc={{product.image}}
+                    alt=""
+                    nzDisablePreview="true"
+                />
+                <p class="book-item-category">{{product.category}}</p>
+                <h2>{{product.title}}</h2>
+                <span>
+                    <p><strong>${{product.price}}</strong></p>
+                </span>
+                <p>{{product.description}}</p>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #none>
+        <img 
+            nz-image
+            width="400px"
+            height="300px"
+            nzSrc="../../../../assets/empty_book_mark.png"
+            alt=""
+            nzDisablePreview="true"
+        />
+    </ng-template>
+</div>

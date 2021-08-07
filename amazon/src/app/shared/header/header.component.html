@@ -1,0 +1,16 @@
+<div class="header">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="Search item ..." #search />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+        <i (click)="searchItem(search.value)" nz-icon nzType="search"></i>
+    </ng-template>
+    <img [routerLink]="['/list']" 
+      nz-image
+      width="200px"
+      height="60px"
+      nzSrc="https://thietkelogo.vn/wp-content/uploads/2017/10/amazon_logo_RGB.jpg"
+      alt="amazon logo"
+      nzDisablePreview="true"
+    />
+</div>

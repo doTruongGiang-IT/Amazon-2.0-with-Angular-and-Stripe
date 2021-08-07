@@ -1,0 +1,21 @@
+.navbar {
+    margin-top: 10px;
+    display: flex;
+    width: 600px;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
+    & p {
+        cursor: pointer;
+        margin-right: 8px;
+        font-weight: 700;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+};

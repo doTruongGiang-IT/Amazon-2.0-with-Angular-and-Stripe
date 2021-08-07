@@ -1,0 +1,31 @@
+<div class="sidebar">
+    <!-- <img [routerLink]="['/list']" 
+      nz-image
+      width="40px"
+      height="40px"
+      nzSrc="https://cdn.icon-icons.com/icons2/2389/PNG/512/amazon_logo_icon_145505.png"
+      alt=""
+      nzDisablePreview="true"
+    /> -->
+    <img [routerLink]="['/list']" 
+      nz-image
+      width="40px"
+      height="40px"
+      nzSrc="../../../assets/amazon_logo_icon_2.png"
+      alt=""
+      nzDisablePreview="true"
+    />
+    <div class="sidebar-main">
+        <i [routerLink]="['/list']" nz-icon nzType="home" nzTheme="fill"></i>
+        <i [routerLink]="['/cart']" nz-icon nzType="shopping-cart" nzTheme="outline"><nz-badge [nzCount]="cartQty.length"></nz-badge></i>
+        <i [routerLink]="['/bookmark']" nz-icon nzType="book" nzTheme="outline"><nz-badge [nzCount]="bookMarkQty.length"></nz-badge></i>
+        <i [routerLink]="['/order']" nz-icon nzType="shopping" nzTheme="outline"></i>
+    </div>
+    <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
+    <ng-template #authenticated>
+      <nz-avatar *ngIf="auth.user$ | async as user" (click)="auth.signOut()" nzSize="large" nzIcon="user" [nzSrc]="user.image"></nz-avatar>
+    </ng-template>
+    <ng-template #guest>
+      <nz-avatar (click)="auth.googleSignin()" nzSize="large" nzIcon="user" nzSrc=""></nz-avatar>
+    </ng-template>
+</div>

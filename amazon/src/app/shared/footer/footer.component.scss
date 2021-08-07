@@ -1,0 +1,40 @@
+.footer {
+    width: 100vw;
+    height: fit-content;
+    padding: 20px 0 20px 60px;
+    background: transparent;
+
+    &-main {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+
+        p {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+
+        h2 {
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+    }
+};
+
+@media (min-width: 414px) and (max-width: 1024px) {
+    .footer {
+        &-main, & hr:first-child {
+            display: none;
+        };
+    };
+};

@@ -1,0 +1,38 @@
+<div class="product">
+    <div class="product-details" *ngIf="productDetails">
+        <div class="product-details-img">
+            <img 
+                nz-image
+                width="300px"
+                height="300px"
+                nzSrc={{productDetails.image}}
+                alt=""
+                nzDisablePreview="true"
+            />
+        </div>
+        <div class="product-details-info">
+            <h2>{{productDetails.title}}</h2>
+            <p><strong>Category: {{productDetails.category}}</strong></p>
+            <p>{{productDetails.description}}</p>
+            <h2><strong>${{productDetails.price}}</strong></h2>
+            <div class="product-details-buttons">
+                <button (click)="addToCart(productDetails)" id="addToCart"><i nz-icon nzType="shopping-cart" nzTheme="outline"></i> Add to cart</button>
+                <button (click)="addMark(productDetails.id)" id="bookmark"><i nz-icon nzType="book" nzTheme="outline"></i></button>
+            </div>
+        </div>
+    </div>
+    <h2 id="divider"><strong>You might also like</strong></h2>
+    <div class="product-recommends">
+        <div [routerLink]="['/list', recommend.id]" class="product-recommends-item" *ngFor="let recommend of productRecommends">
+            <img 
+                nz-image
+                width="150px"
+                height="150px"
+                nzSrc={{recommend.image}}
+                alt=""
+                nzDisablePreview="true"
+            />
+            <h2>{{recommend.title}}</h2>
+        </div>
+    </div>
+</div>

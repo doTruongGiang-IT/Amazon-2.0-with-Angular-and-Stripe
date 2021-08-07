@@ -1,0 +1,33 @@
+<div class="list">
+    <div>
+        <img class="list-banner"
+            nz-image
+            width="650px"
+            height="250px"
+            nzSrc="https://www.softbless.com/wp-content/uploads/2016/11/e-commerce.jpg"
+            alt=""
+            nzDisablePreview="true"
+         />
+         <app-navbar></app-navbar>
+    </div>
+    <div class="list-container">
+        <div class="list-item" *ngFor="let product of productList">
+            <img [routerLink]="['/list', product.id]" 
+                nz-image
+                width="330px"
+                height="300px"
+                nzSrc={{product.image}}
+                alt=""
+                nzDisablePreview="true"
+            />
+            <p class="list-item-category">{{product.category}}</p>
+            <h2>{{product.title}}</h2>
+            <span>
+                <i *ngFor="let star of product.rating" nz-icon nzType="star" nzTheme="fill"></i>
+                <p><strong>${{product.price}}</strong></p>
+            </span>
+            <p>{{product.description}}</p>
+            <button type="button" (click)="addToCart(product)">Add to cart</button>
+        </div>
+    </div>
+</div>

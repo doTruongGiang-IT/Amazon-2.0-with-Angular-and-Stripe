@@ -1,0 +1,89 @@
+.book {
+    padding: 40px 20px;
+    margin: 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    &-item {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        margin: 40px 20px 40px 0;
+        padding: 20px;
+        box-shadow: 5px 5px 20px 0px lightgray;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(110%);
+        }
+
+        h2 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 10px;
+        }
+
+        img {
+            padding-top: 15px;
+            border-radius: 10px;
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(110%);
+            }
+        }
+
+        p {
+            margin: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &-category {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: lightgray;
+            font-size: 14px;
+        }
+
+        span {
+
+            i {
+                color: yellow;
+            }
+        }
+    }
+};
+
+@media (min-width: 414px) and (max-width: 767px) {
+    .book {
+        &-item {
+            width: 250px;
+            margin: 20px;
+
+            img {
+                width: 200px;
+                height: 200px;
+            };
+        };
+    };
+};
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+};
